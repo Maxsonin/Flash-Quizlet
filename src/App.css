@@ -1,0 +1,144 @@
+body {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    color-scheme: light dark;
+    color: #ffffff;
+    background-color: #0a092d;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 7px;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;        
+}
+.title-container__title {
+    color: #ffffff;
+    margin: 0;
+}
+.title-container__subtitle {
+    color: #ffffff99;
+    margin: 0 0 10px 0;
+}
+
+/* Input Styles */
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+.input-container__input {
+    font-weight: bold;
+    font-size: 18px;
+
+    background-color: #2e3856;
+    color: #cdd1d8;
+
+    border-radius: 5px;
+    border: none;
+
+    padding: 15px 10px;
+    margin-right: 5px;
+}
+.input-container__button-submit {
+    font-size: 17px;
+    font-weight: bold;
+
+    border-radius: 5px;
+    border: none;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+    background-color: #4255ff;
+    color: #ffffff;
+
+    padding: 10px 20px;
+}
+.input-container__button-submit:hover {
+    background-color: #001aff;
+}
+.error-message {
+    color: rgba(255, 1, 1, 0.856);
+    margin: 5px 0 0 10px;
+    font-size: 17px;
+}
+
+
+/* List Styles */
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;        
+}
+.list__item {
+    color: #ffffff;
+
+    padding: 15px;
+    margin: 0 0 8px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 7px;
+    width: 90%;
+    height: 25px;
+
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.list__item-input {
+    background: none;   
+    border: none;
+    outline: none;
+    font-size: medium;
+    border-bottom: 2px solid #a8b1ff;
+    padding-bottom: 4px;
+}
+.list__item-text {
+    font-size: medium;
+    text-align: center;
+}
+
+/* Icons */
+.icon {
+    margin-left: 5px;
+    background-color: #f1c40f;
+    padding: 5px 8px;
+    border-radius: 5px;
+    color: #000000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.icon:hover {
+    background-color: #ffdc62;
+    transition: background-color 0.3s ease;
+}
+.list__item:hover .icon {
+    opacity: 1;
+}
+
+/* Set Types Styles */
+.inactiveSet:hover {
+    background-color: #1d253b;
+}
+.inactiveSet {
+    background-color: #2e3856;
+}
+.activeSet {
+    background-color: #4255ff;
+    font-weight: bold;
+}
+.activeSet:hover {
+    background-color: #423ed8;
+}

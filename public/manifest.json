@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Quizlet Flash",
+  "version": "1.0.0",
+  "description": "Add words to your lists faster.",
+  "permissions": ["tabs", "storage", "activeTab", "contextMenus", "scripting"],
+
+  "host_permissions": [
+    "https://quizlet.com/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["https://quizlet.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "action": {
+    "default_popup": "index.html"
+  },
+
+  "icons": {
+    "512": "icons/icon-512.png"
+  }
+}
