@@ -1,7 +1,7 @@
 import React from "react";
-import { FlashcardSet } from "../model";
+import { FlashcardSet } from "./model";
 import SetItem from "./SetItem";
-import '../App.css';
+import '../index.css';
 
 interface Props {
     sets: Set<FlashcardSet>;

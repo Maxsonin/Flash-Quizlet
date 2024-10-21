@@ -1,6 +1,6 @@
-import { FlashcardSet } from './model';
+import { FlashcardSet } from './components/model';
 
-// Delete all existing context menus before creating new one
+// Delete all existing context menus before creating new one to avoid error
 chrome.contextMenus.removeAll(() => { 
     chrome.contextMenus.create({
         id: "addSelectedWord",
@@ -25,14 +25,13 @@ const updateContextMenuTitle = () => {
 // Initial update of context menu
 updateContextMenuTitle();
 
-// Listen for storage changes and update context menu title accordingly
+// If active set changes - context manu should be updated too
 chrome.storage.onChanged.addListener((changes, area) => {
     if (area === "sync" && changes.sets) {
         updateContextMenuTitle();
     }
 });
 
-// Listener for context menu clicks
 chrome.contextMenus.onClicked.addListener((info, _tab) => {
     if (info.menuItemId === "addSelectedWord" && info.selectionText) {
         chrome.storage.sync.get('sets', (data) => {
@@ -53,9 +52,9 @@ chrome.contextMenus.onClicked.addListener((info, _tab) => {
                                 }
                             });
                         });
-                    } else { 
+                    } else { // Open a new tab
                         chrome.tabs.create({ url }, (newTab) => {
-                            chrome.tabs.onUpdated.addListener(function onUpdated(tabId, changeInfo) {
+                            chrome.tabs.onUpdated.addListener(function onUpdated(tabId, changeInfo) { // Wait for the tab to load before sanding a message
                                 if (tabId === newTab.id && changeInfo.status === 'complete') {
                                     chrome.tabs.sendMessage(newTab.id!, { action: "addWordToSet", word: info.selectionText }, (response) => {
                                         if (chrome.runtime.lastError) {
@@ -64,7 +63,7 @@ chrome.contextMenus.onClicked.addListener((info, _tab) => {
                                             console.log("Response from content script:", response);
                                         }
                                     });
-                                    chrome.tabs.onUpdated.removeListener(onUpdated); // Clean up the listener
+                                    chrome.tabs.onUpdated.removeListener(onUpdated);
                                 }
                             });
                         });

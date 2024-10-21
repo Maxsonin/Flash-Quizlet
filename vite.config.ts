@@ -8,8 +8,8 @@ export default defineConfig({
     minify: false,
     rollupOptions: {
       input: {
-        background: './src/background.ts', 
-        content: './src/content.ts', 
+        service_worker: './src/service_worker.ts', 
+        content_scripts: './src/content_scripts.ts', 
         main: './index.html', 
       },
       output: {

@@ -1,9 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "Quizlet Flash",
   "version": "1.0.0",
-  "description": "Add words to your lists faster.",
-  "permissions": ["tabs", "storage", "activeTab", "contextMenus", "scripting"],
+  "name": "Flash Quizlet",
+  "description": "Speed up the process of adding words to your lists.",
+
+  "permissions": [
+    "tabs",
+    "storage",
+    "activeTab",
+    "contextMenus",
+    "scripting"
+  ],
 
   "host_permissions": [
     "https://quizlet.com/*"
@@ -11,13 +18,17 @@
 
   "content_scripts": [
     {
-      "matches": ["https://quizlet.com/*"],
-      "js": ["content.js"]
+      "matches": [
+        "https://quizlet.com/*/edit"
+      ],
+      "js": [
+        "content_scripts.js"
+      ]
     }
   ],
 
   "background": {
-    "service_worker": "background.js",
+    "service_worker": "service_worker.js",
     "type": "module"
   },
 
@@ -26,6 +37,8 @@
   },
 
   "icons": {
-    "512": "icons/icon-512.png"
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
   }
 }

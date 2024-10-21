@@ -64,14 +64,13 @@ body {
     padding: 10px 20px;
 }
 .input-container__button-submit:hover {
-    background-color: #001aff;
+    background-color: #423ed8;
 }
 .error-message {
     color: rgba(255, 1, 1, 0.856);
     margin: 5px 0 0 10px;
     font-size: 17px;
 }
-
 
 /* List Styles */
 .list {
@@ -109,9 +108,7 @@ body {
     font-size: medium;
     text-align: center;
 }
-
-/* Icons */
-.icon {
+.list__item-icon {
     margin-left: 5px;
     background-color: #f1c40f;
     padding: 5px 8px;
@@ -120,25 +117,24 @@ body {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
-.icon:hover {
+.list__item-icon:hover {
     background-color: #ffdc62;
     transition: background-color 0.3s ease;
 }
-.list__item:hover .icon {
+.list__item:hover .list__item-icon {
     opacity: 1;
 }
-
 /* Set Types Styles */
-.inactiveSet:hover {
+.inactive:hover {
     background-color: #1d253b;
 }
-.inactiveSet {
+.inactive {
     background-color: #2e3856;
 }
-.activeSet {
+.active {
     background-color: #4255ff;
     font-weight: bold;
 }
-.activeSet:hover {
+.active:hover {
     background-color: #423ed8;
 }
