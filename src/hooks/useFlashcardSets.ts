@@ -14,20 +14,28 @@ export const useFlashcardSets = () => {
   }, []);
 
   function extractIdAndName(url: string) {
+    let id, namePart;
     const urlParts = url.split('/');
-    const id = parseInt(urlParts[4]); // Extract ID from URL
-    const namePart = urlParts[5];     // Extract name part
-    // Then remove 'flash-cards' and replace '-' with ' ' between words
-    const name = namePart.split('-').slice(0, -2).join('-').replace(/-/g, ' ');  
+    if (urlParts.length === 7) {
+        id = parseInt(urlParts[4]);
+        namePart = urlParts[5];
+    } else {
+        id = parseInt(urlParts[3]);
+        namePart = urlParts[4];
+    }
+    // Remove 'flash-cards' and replace '-' with ' ' between words
+    const name = namePart.split('-').slice(0, -2).join('-').replace(/-/g, ' ');
+
     return { id, name };
-  }
+}
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();    
 
-    const urlPattern = /^https:\/\/quizlet.com\/.*\/\d+\/.*flash-cards.*$/;
+    const urlPattern1 = /^https:\/\/quizlet.com\/.*\/\d+\/.*flash-cards.*$/;
+    const urlPattern2 = /^https:\/\/quizlet.com\/\d+\/.*flash-cards.*$/;
 
-    if (setUrl && urlPattern.test(setUrl.trim())) {
+    if (setUrl && (urlPattern1.test(setUrl.trim()) || urlPattern2.test(setUrl.trim()))) {
         let { id, name } = extractIdAndName(setUrl);
         if (!name) name = `set${sets.size + 1}`; // Default name if not found in URL
         const isActive = sets.size === 0; // Only set active if it's the first one
@@ -54,6 +62,7 @@ export const useFlashcardSets = () => {
         setInputError("Incorrect URL!");
     }     
   };
+
 
   return { setUrl, setSetUrl, inputError, handleAdd, sets, setSets };
 };
