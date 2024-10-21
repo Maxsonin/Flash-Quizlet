@@ -1,1 +1,0 @@
-{"root":["./src/app.tsx","./src/content_scripts.ts","./src/main.tsx","./src/service_worker.ts","./src/vite-env.d.ts","./src/components/inputfield.tsx","./src/components/setitem.tsx","./src/components/setlist.tsx","./src/components/model.ts","./src/hooks/useflashcardactions.ts","./src/hooks/useflashcardsets.ts"],"version":"5.6.3"}
