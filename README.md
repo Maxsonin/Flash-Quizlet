@@ -1,5 +1,6 @@
 # Flash Quizlet
-Speed up your flashcard creation for any Quizlet set! 🚀
+Speed up your flashcard creation for any Quizlet set! 🚀<br>
+Extension URL: https://chromewebstore.google.com/detail/flash-quizlet/kfddjgbmbpljinfjldhbcjceijelhpbn
 
 # How to Use🤔:
 **1. Open the Extension Popup<br>**
