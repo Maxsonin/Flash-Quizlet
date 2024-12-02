@@ -9,32 +9,21 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
 
 function addWordToSet(word: string): void {
     const inputFields = document.querySelectorAll('div[contenteditable="true"][role="textbox"]');
-    
-    const lastInputField = inputFields.length > 0 ? inputFields[inputFields.length - 2] as HTMLElement : null;
-    if (lastInputField) {
+    const lastInputField = inputFields.length > 0 ? inputFields[inputFields.length - 4] as HTMLElement : null;
+    if (lastInputField && lastInputField.textContent?.trim() === "") {
         lastInputField.focus();
-        const range = document.createRange();
-        const selection = window.getSelection();
-
-        if (selection) {
-            range.selectNodeContents(lastInputField);
-            selection.removeAllRanges();
-            selection.addRange(range);
-
-            lastInputField.textContent += word;
-
-            // Reset caret position to the end of the input field
-            const newRange = document.createRange();
-            newRange.selectNodeContents(lastInputField);
-            newRange.collapse(false);
-            selection.removeAllRanges();
-            selection.addRange(newRange);
-        }
+        lastInputField.textContent = word;
     } else {
-        // If there are no existing input fields, add a new card
         const addCardButton = document.getElementById('addRow') as HTMLElement;
         if (addCardButton) {
             addCardButton.click();
+            setTimeout(() => {
+                const newInputFields = document.querySelectorAll('div[contenteditable="true"][role="textbox"]');
+                const newLastInputField = newInputFields[newInputFields.length - 4] as HTMLElement;
+                if (newLastInputField) {
+                    newLastInputField.textContent = word;
+                }
+            }, 400);
         } else {
             console.error('Add card button not found.');
         }
