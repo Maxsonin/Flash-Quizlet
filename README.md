@@ -1,50 +1,21 @@
-# React + TypeScript + Vite
+# Flash Quizlet
+Speed up your flashcard creation for any Quizlet set! 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# How to Use🤔:
+**1. Open the Extension Popup<br>**
+&emsp;Paste the URL of the main page of the set you want to add words to. (You can add as many sets as you want)<br>
+&emsp;✅ Example: https://quizlet.com/fi/845259869/vocabulary-from-fight-club-flash-cards/
 
-Currently, two official plugins are available:
+**2. Activate Your Extension<br>**
+&emsp;If your extension icon is blue🔵, it means it's active! From now on, it will automatically add words to this set.<br>
+&emsp;You can change/edit/delete any of the added sets.<br>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**3. Add Words with Ease<br>**
+&emsp;When you want to add a word, simply select it and right-click to open the context menu. Look for the extension option and click it!<br>
+&emsp;This will take you to the edit page of your set, where you can easily add a definition! ✍️<br>
+&emsp;✅ Example of context menu prompt: (Add "store" to "my set")
 
-## Expanding the ESLint configuration
+# Update 1.1.0
+Quizlet added a feature of automatically adding an empty card, so instead of creating a new card, the extension will choose to use an empty card or create a new one.<br>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+    Thank you for using Flash Quizlet! Let’s make your work more productive together! 💪✨
